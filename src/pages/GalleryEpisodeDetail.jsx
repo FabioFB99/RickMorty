@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./GalleryCharacterDetail.css";
-const GalleryDetail = () => {
+const GalleryEpisodeDetail = () => {
   const [character, setCharacter] = useState({});
   const { id } = useParams();
 
   const getCharacter = async () => {
     const res = await axios.get(
-      `https://rickandmortyapi.com/api/character/${id}`
+      `https://rickandmortyapi.com/api/episode/${id}`
     );
     const data = res.data;
     console.log(data);
@@ -20,11 +20,6 @@ const GalleryDetail = () => {
   return (
     <main>
       <figure className="sw-section-detail">
-        <img
-          src={character.image}
-          alt={character.name}
-          referrerPolicy="no-referrer"
-        />
         <h3>Status: {character.status}</h3>
         <h3>Species: {character.species}</h3>
         <h3>Gender:{character.gender}</h3>
@@ -35,4 +30,4 @@ const GalleryDetail = () => {
     </main>
   );
 };
-export default GalleryDetail;
+export default GalleryEpisodeDetail;

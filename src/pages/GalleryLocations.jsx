@@ -10,13 +10,13 @@ const GalleryLocations = () => {
   const getLocations = async () => {
     const res = await axios.get("https://rickandmortyapi.com/api/location");
     const data = res.data;
-    //console.log(data);
+    console.log(data);
     setLocations(data.results);
     setLoaded(true);
   };
   useEffect(() => {
     getLocations();
-  });
+  }, []);
   return (
     <main className="sw-section-gallery">
       <h2>Locations</h2>
